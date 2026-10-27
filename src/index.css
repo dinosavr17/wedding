@@ -1,0 +1,959 @@
+:root {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #202a2c;
+  background: #f8f5ed;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --color-accent: #287f84;
+  --color-muted: #687473;
+  --color-line: #d6ddd5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 6px;
+}
+
+.site-header {
+  width: min(1440px, 100%);
+  margin: 0 auto;
+  padding: 28px 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.site-logo {
+  flex-shrink: 0;
+  font-size: 32px;
+  white-space: nowrap;
+}
+
+.site-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px 32px;
+}
+
+.navigation-link {
+  padding: 6px 0;
+  border-bottom: 1px solid transparent;
+
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  transition:
+          color 180ms ease,
+          border-color 180ms ease;
+}
+
+.navigation-link:hover,
+.navigation-link.is-active {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+.header-date {
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.home-page {
+  width: min(1440px, 100%);
+  margin: 0 auto;
+  padding: 64px 48px 48px;
+}
+
+.story-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: 64px;
+  min-height: 560px;
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.story-heading h1 {
+  margin: 24px 0;
+
+  font-size: clamp(64px, 7vw, 108px);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+}
+
+.story-tagline {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.8;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.story-heart {
+  display: inline-block;
+  margin-top: 24px;
+  color: var(--color-accent);
+  font-size: 48px;
+  line-height: 1;
+}
+
+.first-chapter {
+  min-height: 440px;
+  padding: 32px 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border: 1px solid var(--color-line);
+  border-radius: 180px 180px 12px 12px;
+  background:
+          radial-gradient(
+                  ellipse at 50% 45%,
+                  rgb(100 184 175 / 15%),
+                  transparent 70%
+          );
+}
+
+.chapter-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 32px;
+}
+
+.chapter-number {
+  color: var(--color-accent);
+  font-size: 22px;
+}
+
+.chapter-content {
+  padding: 36px 0;
+  text-align: center;
+}
+
+.chapter-symbol {
+  display: block;
+  margin-bottom: 24px;
+
+  color: var(--color-accent);
+  font-family: monospace;
+  font-size: 48px;
+}
+
+.chapter-content h2 {
+  margin: 0 0 16px;
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 400;
+}
+
+.chapter-content p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.chapter-note {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.story-continuation {
+  padding: 56px 0 16px;
+  color: var(--color-muted);
+  text-align: center;
+}
+
+.continuation-line {
+  display: block;
+  width: 1px;
+  height: 64px;
+  margin: 0 auto 24px;
+  background: var(--color-accent);
+}
+
+.story-continuation p {
+  font-size: 14px;
+  font-style: italic;
+}
+
+.placeholder-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 100px 24px;
+}
+
+.placeholder-page h1 {
+  font-size: clamp(40px, 7vw, 72px);
+  font-weight: 400;
+}
+
+@media (max-width: 900px) {
+  .site-header {
+    flex-wrap: wrap;
+    padding: 24px;
+  }
+
+  .site-navigation {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 12px 24px;
+  }
+
+  .home-page {
+    padding: 40px 24px;
+  }
+
+  .story-intro {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    min-height: auto;
+  }
+
+  .story-heading h1 {
+    font-size: clamp(64px, 12vw, 100px);
+  }
+
+  .first-chapter {
+    width: 100%;
+    max-width: 620px;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header {
+    gap: 24px;
+  }
+
+  .navigation-link {
+    font-size: 11px;
+  }
+
+  .story-tagline {
+    font-size: 14px;
+    letter-spacing: 0.18em;
+  }
+
+  .first-chapter {
+    min-height: 400px;
+    padding: 28px 24px;
+    border-radius: 140px 140px 12px 12px;
+  }
+
+  .chapter-content p {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navigation-link {
+    transition: none;
+  }
+}
+:root {
+  --color-paper: #f8f5ed;
+}
+
+.animated-route {
+  padding: 80px 0 100px;
+}
+
+.animated-route-label {
+  color: var(--color-muted);
+  text-align: center;
+}
+
+.route-canvas {
+  position: relative;
+
+  width: 100%;
+  margin: 32px 0;
+
+  /*
+   * Координаты контейнера совпадают с viewBox SVG.
+   * Это позволяет самолёту двигаться по той же линии.
+   */
+  aspect-ratio: 1000 / 300;
+}
+
+.route-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.route-track {
+  stroke: var(--color-line);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 8;
+  stroke-linecap: round;
+}
+
+.route-progress {
+  stroke: var(--color-accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.route-point {
+  fill: var(--color-accent);
+}
+
+.route-plane {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: clamp(26px, 4vw, 48px);
+  height: clamp(26px, 4vw, 48px);
+
+  color: var(--color-accent);
+
+  /*
+   * shape() использует проценты, поэтому маршрут
+   * масштабируется вместе с контейнером.
+   *
+   * Точки соответствуют ROUTE_PATH в компоненте.
+   */
+  offset-path: shape(
+          from 6% 46.6667%,
+          curve to 28% 16.6667%
+          with 16% 46.6667% / 16% 16.6667%,
+          curve to 56% 76.6667%
+          with 40% 16.6667% / 44% 76.6667%,
+          curve to 94% 26.6667%
+          with 68% 76.6667% / 72% 26.6667%
+  );
+
+  offset-anchor: center;
+  offset-rotate: auto;
+  pointer-events: none;
+}
+
+.route-plane svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.route-caption {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 16px;
+  font-style: italic;
+  text-align: center;
+}
+
+/* В браузере без поддержки shape() оставляем линию. */
+@supports not (offset-path: shape(from 0% 0%, line to 100% 100%)) {
+  .route-plane {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .animated-route {
+    padding: 64px 0 100px;
+  }
+
+  .animated-route-label {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+  }
+
+  .route-caption {
+    font-size: 14px;
+  }
+}
+.route-plane-emoji {
+  display: block;
+  font-family:
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Noto Color Emoji",
+          sans-serif;
+  font-size: clamp(28px, 4vw, 46px);
+  line-height: 1;
+
+  /* Разворачиваем нос самолёта вдоль направления пути. */
+  transform: rotate(45deg);
+}
+.meeting-chapter {
+  min-width: 0;
+}
+
+.meeting-copy {
+  padding-left: 12%;
+}
+
+.meeting-copy h2 {
+  margin: 12px 0;
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 400;
+}
+
+.meeting-description {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.meeting-scene {
+  position: relative;
+  margin-top: 24px;
+}
+
+.meeting-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/*
+ * Позиции заданы относительно всей картинки,
+ * включая прозрачные поля.
+ */
+.meeting-bubble-position {
+  position: absolute;
+  top: 10%;
+  width: clamp(38px, 5vw, 64px);
+}
+
+.meeting-bubble-position--code {
+  left: 27%;
+}
+
+.meeting-bubble-position--heart {
+  left: 63%;
+}
+
+.meeting-bubble {
+  position: relative;
+  display: grid;
+  place-items: center;
+
+  width: 100%;
+  aspect-ratio: 80 / 64;
+  padding-bottom: 15%;
+
+  color: #202a2c;
+}
+
+.meeting-bubble-frame {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.meeting-code {
+  position: relative;
+  display: block;
+
+  width: 54%;
+  height: auto;
+  color: #202a2c;
+}
+
+.meeting-heart {
+  position: relative;
+  display: inline-flex;
+
+  width: 30%;
+  color: #d94b55;
+  transform-origin: center;
+}
+
+.meeting-heart-icon {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .meeting-chapter {
+    width: 100%;
+    max-width: 760px;
+    justify-self: center;
+  }
+
+  .meeting-copy {
+    padding-left: 4%;
+  }
+}
+.meeting-bubble-position {
+  position: absolute;
+  top: 10%;
+  width: clamp(48px, 5vw, 72px);
+}
+
+.thought-bubble-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.dubai-chapter {
+  display: grid;
+  grid-template-columns: minmax(200px, 280px) minmax(0, 620px);
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 64px;
+}
+
+.dubai-copy {
+  min-width: 0;
+}
+
+.dubai-copy h2 {
+  margin: 12px 0;
+
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.dubai-city {
+  margin: 0 0 16px;
+
+  color: var(--color-accent);
+  font-size: 30px;
+  font-style: italic;
+}
+
+.dubai-description {
+  margin: 0;
+
+  color: var(--color-muted);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.dubai-image {
+  display: block;
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  justify-self: center;
+}
+
+@media (max-width: 900px) {
+  .dubai-chapter {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    max-width: 620px;
+  }
+
+  .dubai-copy {
+    padding-left: 4%;
+  }
+}
+
+@media (max-width: 600px) {
+  .dubai-chapter {
+    padding-bottom: 40px;
+  }
+
+  .dubai-description {
+    font-size: 16px;
+  }
+}
+.dubai-visual {
+  position: relative;
+  min-width: 0;
+  width: 100%;
+  max-width: 620px;
+  padding-bottom: 85px;
+  justify-self: center;
+}
+
+.dubai-camera-flash {
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(
+          ellipse at 48% 35%,
+          white 0%,
+          rgb(255 255 255 / 80%) 18%,
+          rgb(255 255 255 / 0%) 65%
+  );
+
+  pointer-events: none;
+}
+
+.dubai-polaroid {
+  position: absolute;
+  right: -6px;
+  bottom: 14px;
+  z-index: 4;
+
+  width: clamp(150px, 32%, 195px);
+  margin: 0;
+  padding: 10px 10px 0;
+
+  background: #fffdf8;
+  box-shadow:
+          0 12px 28px rgb(32 42 44 / 15%),
+          0 2px 6px rgb(32 42 44 / 8%);
+
+  transform-origin: center;
+}
+
+.dubai-polaroid-window {
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #e7e1d5;
+}
+
+.dubai-polaroid-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  /* Для вертикального селфи: сохраняем в кадре оба лица. */
+  object-position: center 65%;
+}
+
+.dubai-polaroid-caption {
+  padding: 15px 0 17px;
+
+  color: #39413e;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.3;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .dubai-visual {
+    padding-bottom: 12px;
+  }
+
+  .dubai-polaroid {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    width: 185px;
+
+    /* Автоматический отступ слева прижимает фото вправо. */
+    margin: 24px auto 0 12px;
+  }
+}
+.dubai-artwork {
+  position: relative;
+  isolation: isolate;
+}
+
+.dubai-water {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Вспышка остаётся поверх воды. */
+.dubai-camera-flash {
+  z-index: 3;
+}
+
+.dubai-yachts {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+.asia-trip {
+  padding: 64px 0 80px;
+}
+
+.asia-trip-heading {
+  max-width: 720px;
+  margin: 0 auto 64px;
+  text-align: center;
+}
+
+.asia-trip-heading h2 {
+  margin: 16px 0;
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.asia-trip-heading > p:last-child {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.asia-trip-layout {
+  display: grid;
+  grid-template-columns: minmax(340px, 460px) minmax(0, 1fr);
+  align-items: start;
+  gap: 40px;
+}
+
+.asia-map-column {
+  align-self: stretch;
+  min-width: 0;
+}
+
+.asia-map-sticky {
+  position: sticky;
+  top: 32px;
+}
+
+/*.asia-map {*/
+/*  display: block;*/
+/*  width: 100%;*/
+/*  height: auto;*/
+/*  margin-top: 16px;*/
+/*}*/
+
+.asia-map-land {
+  fill: #e7e9dc;
+  stroke: #c4cbb7;
+  stroke-width: 1.2;
+  stroke-linejoin: round;
+}
+
+.asia-map {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 85svh;
+  margin-top: 16px;
+}
+
+.asia-map-route {
+  fill: none;
+  stroke: #797b72;
+  stroke-width: 4;
+  stroke-dasharray: 10 13;
+  stroke-linecap: round;
+  opacity: 0.35;
+}
+
+.asia-map-route--active {
+  stroke: var(--color-accent);
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .asia-map {
+    max-height: none;
+  }
+}
+
+.asia-map-halo {
+  fill: transparent;
+  transition: fill 300ms ease;
+}
+
+.asia-map-halo.is-active {
+  fill: rgb(40 127 132 / 16%);
+}
+
+.asia-map-dot {
+  fill: #a3ada7;
+  stroke: var(--color-paper, #f8f5ed);
+  stroke-width: 2;
+  transition: fill 300ms ease;
+}
+
+.asia-map-dot.is-active {
+  fill: var(--color-accent);
+}
+
+.asia-map-label {
+  fill: #687473;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 13px;
+}
+
+.asia-map-label.is-active {
+  fill: #202a2c;
+  font-weight: bold;
+}
+
+.asia-map-caption {
+  margin: 0;
+  color: var(--color-accent);
+  font-size: 24px;
+  font-style: italic;
+  text-align: center;
+}
+
+.asia-trip-scenes {
+  min-width: 0;
+}
+
+.asia-stop {
+  padding: 24px 0 88px;
+}
+
+.asia-stop + .asia-stop {
+  padding-top: 48px;
+}
+
+.asia-stop h3 {
+  margin: 12px 0;
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.asia-stop-description {
+  max-width: 480px;
+  margin: 0 0 28px;
+  color: var(--color-muted);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.asia-scene-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.asia-jewel {
+  width: min(85%, 580px);
+  margin: 40px auto 0;
+}
+
+.asia-jewel figcaption {
+  margin-top: 16px;
+  color: var(--color-muted);
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .asia-trip-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .asia-map-sticky {
+    position: static;
+    width: 100%;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+
+  .asia-trip-scenes {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .asia-trip-heading {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .asia-trip {
+    padding: 40px 0;
+  }
+
+  .asia-stop {
+    padding-bottom: 48px;
+  }
+
+  .asia-stop + .asia-stop {
+    padding-top: 24px;
+  }
+
+  .asia-stop-description {
+    font-size: 16px;
+  }
+
+  .asia-jewel {
+    width: 85%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .asia-map-halo,
+  .asia-map-dot {
+    transition: none;
+  }
+}
+.running-couple {
+  display: grid;
+  width: 100%;
+  max-width: 600px;
+}
+
+.running-couple-frame {
+  grid-area: 1 / 1;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
